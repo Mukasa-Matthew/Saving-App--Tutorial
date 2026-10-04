@@ -1,0 +1,58 @@
+export type Country = {
+  name: string
+  code: string
+  callingCode: string
+  recommendedCurrency: string
+}
+
+// Reusable international country metadata for forms and future payment routing.
+export const countries: Country[] = [
+  { name: 'Argentina', code: 'AR', callingCode: '+54', recommendedCurrency: 'ARS' },
+  { name: 'Australia', code: 'AU', callingCode: '+61', recommendedCurrency: 'AUD' },
+  { name: 'Bangladesh', code: 'BD', callingCode: '+880', recommendedCurrency: 'BDT' },
+  { name: 'Botswana', code: 'BW', callingCode: '+267', recommendedCurrency: 'BWP' },
+  { name: 'Brazil', code: 'BR', callingCode: '+55', recommendedCurrency: 'BRL' },
+  { name: 'Canada', code: 'CA', callingCode: '+1', recommendedCurrency: 'CAD' },
+  { name: 'Chile', code: 'CL', callingCode: '+56', recommendedCurrency: 'CLP' },
+  { name: 'China', code: 'CN', callingCode: '+86', recommendedCurrency: 'CNY' },
+  { name: 'Colombia', code: 'CO', callingCode: '+57', recommendedCurrency: 'COP' },
+  { name: 'Egypt', code: 'EG', callingCode: '+20', recommendedCurrency: 'EGP' },
+  { name: 'Ethiopia', code: 'ET', callingCode: '+251', recommendedCurrency: 'ETB' },
+  { name: 'France', code: 'FR', callingCode: '+33', recommendedCurrency: 'EUR' },
+  { name: 'Germany', code: 'DE', callingCode: '+49', recommendedCurrency: 'EUR' },
+  { name: 'Ghana', code: 'GH', callingCode: '+233', recommendedCurrency: 'GHS' },
+  { name: 'Hong Kong', code: 'HK', callingCode: '+852', recommendedCurrency: 'HKD' },
+  { name: 'India', code: 'IN', callingCode: '+91', recommendedCurrency: 'INR' },
+  { name: 'Indonesia', code: 'ID', callingCode: '+62', recommendedCurrency: 'IDR' },
+  { name: 'Ireland', code: 'IE', callingCode: '+353', recommendedCurrency: 'EUR' },
+  { name: 'Israel', code: 'IL', callingCode: '+972', recommendedCurrency: 'ILS' },
+  { name: 'Italy', code: 'IT', callingCode: '+39', recommendedCurrency: 'EUR' },
+  { name: 'Japan', code: 'JP', callingCode: '+81', recommendedCurrency: 'JPY' },
+  { name: 'Kenya', code: 'KE', callingCode: '+254', recommendedCurrency: 'KES' },
+  { name: 'Malaysia', code: 'MY', callingCode: '+60', recommendedCurrency: 'MYR' },
+  { name: 'Mauritius', code: 'MU', callingCode: '+230', recommendedCurrency: 'MUR' },
+  { name: 'Mexico', code: 'MX', callingCode: '+52', recommendedCurrency: 'MXN' },
+  { name: 'Morocco', code: 'MA', callingCode: '+212', recommendedCurrency: 'MAD' },
+  { name: 'New Zealand', code: 'NZ', callingCode: '+64', recommendedCurrency: 'NZD' },
+  { name: 'Nigeria', code: 'NG', callingCode: '+234', recommendedCurrency: 'NGN' },
+  { name: 'Pakistan', code: 'PK', callingCode: '+92', recommendedCurrency: 'PKR' },
+  { name: 'Peru', code: 'PE', callingCode: '+51', recommendedCurrency: 'PEN' },
+  { name: 'Philippines', code: 'PH', callingCode: '+63', recommendedCurrency: 'PHP' },
+  { name: 'Qatar', code: 'QA', callingCode: '+974', recommendedCurrency: 'QAR' },
+  { name: 'Rwanda', code: 'RW', callingCode: '+250', recommendedCurrency: 'RWF' },
+  { name: 'Saudi Arabia', code: 'SA', callingCode: '+966', recommendedCurrency: 'SAR' },
+  { name: 'Singapore', code: 'SG', callingCode: '+65', recommendedCurrency: 'SGD' },
+  { name: 'South Africa', code: 'ZA', callingCode: '+27', recommendedCurrency: 'ZAR' },
+  { name: 'South Korea', code: 'KR', callingCode: '+82', recommendedCurrency: 'KRW' },
+  { name: 'Spain', code: 'ES', callingCode: '+34', recommendedCurrency: 'EUR' },
+  { name: 'Switzerland', code: 'CH', callingCode: '+41', recommendedCurrency: 'CHF' },
+  { name: 'Tanzania', code: 'TZ', callingCode: '+255', recommendedCurrency: 'TZS' },
+  { name: 'Thailand', code: 'TH', callingCode: '+66', recommendedCurrency: 'THB' },
+  { name: 'Turkey', code: 'TR', callingCode: '+90', recommendedCurrency: 'TRY' },
+  { name: 'Uganda', code: 'UG', callingCode: '+256', recommendedCurrency: 'UGX' },
+  { name: 'United Arab Emirates', code: 'AE', callingCode: '+971', recommendedCurrency: 'AED' },
+  { name: 'United Kingdom', code: 'GB', callingCode: '+44', recommendedCurrency: 'GBP' },
+  { name: 'United States', code: 'US', callingCode: '+1', recommendedCurrency: 'USD' },
+  { name: 'Vietnam', code: 'VN', callingCode: '+84', recommendedCurrency: 'VND' },
+  { name: 'Zambia', code: 'ZM', callingCode: '+260', recommendedCurrency: 'ZMW' },
+]
