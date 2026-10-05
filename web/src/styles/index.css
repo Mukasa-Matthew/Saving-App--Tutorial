@@ -1,0 +1,21 @@
+/* ==========================================================================
+   GoalSave stylesheet entry point.
+
+   Import order is the cascade order — each layer may only override the
+   layers above it. Keep it that way: a rule belongs in the layer that owns
+   its concern, never appended to the end of the file.
+
+     fonts       @font-face declarations
+     tokens      design decisions (colour, type, space, motion)
+     base        reset, document defaults, accessibility primitives
+     components  reusable controls and surfaces
+     public      marketing + auth screens
+     app         authenticated shell and its pages
+   ========================================================================== */
+
+@import './fonts.css';
+@import './tokens.css';
+@import './base.css';
+@import './components.css';
+@import './public.css';
+@import './app.css';

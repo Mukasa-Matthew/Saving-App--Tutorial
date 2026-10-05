@@ -13,6 +13,22 @@ function transactionAmount(type: string, amount: number) {
   return `${type === 'Deposit' ? '+' : '-'}${formatCurrency(amount, demoUser.preferredCurrency)}`
 }
 
+type TooltipPayload = { payload: { month: string; saved: number } }
+
+function SavingsTooltip({ active, payload }: { active?: boolean; payload?: TooltipPayload[] }) {
+  if (!active || !payload?.length) return null
+  const { month, saved } = payload[0].payload
+  return (
+    <div className="chart-tooltip">
+      <span>{month}</span>
+      <strong>{formatCurrency(saved, demoUser.preferredCurrency)}</strong>
+    </div>
+  )
+}
+
+const chartTotal = savingsActivityDemo.reduce((sum, point) => sum + point.saved, 0)
+const chartSummary = `Monthly savings activity. ${savingsActivityDemo[0].month} to ${savingsActivityDemo[savingsActivityDemo.length - 1].month}, rising from ${formatCurrency(savingsActivityDemo[0].saved, demoUser.preferredCurrency)} to ${formatCurrency(savingsActivityDemo[savingsActivityDemo.length - 1].saved, demoUser.preferredCurrency)}, ${formatCurrency(chartTotal, demoUser.preferredCurrency)} saved in total.`
+
 const currentHour = new Date().getHours()
 const dashboardGreeting = currentHour < 12 ? 'Good morning' : currentHour < 18 ? 'Good afternoon' : 'Good evening'
 
@@ -44,15 +60,15 @@ function DashboardPage() {
       <section className="dashboard-main-grid">
         <article className="savings-chart-panel">
           <div className="section-heading"><div><h2>Savings activity</h2><p>Your monthly contributions</p></div><span className="chart-period">Last 6 months</span></div>
-          <div className="savings-chart" aria-label="Monthly savings activity chart">
+          <div className="savings-chart" aria-label={chartSummary} role="img">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={savingsActivityDemo} margin={{ top: 12, right: 8, left: -12, bottom: 0 }}>
-                <defs><linearGradient id="savingsFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#12604c" stopOpacity={0.22} /><stop offset="100%" stopColor="#12604c" stopOpacity={0} /></linearGradient></defs>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8e5" />
-                <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fill: '#73827d', fontSize: 12 }} />
-                <YAxis axisLine={false} tickLine={false} tick={{ fill: '#73827d', fontSize: 12 }} tickFormatter={(value) => new Intl.NumberFormat(undefined, { notation: 'compact' }).format(value)} />
-                <Tooltip formatter={(value) => [formatCurrency(Number(value), demoUser.preferredCurrency), 'Saved']} />
-                <Area type="monotone" dataKey="saved" stroke="#12604c" strokeWidth={2.5} fill="url(#savingsFill)" activeDot={{ r: 4 }} />
+                <defs><linearGradient id="savingsFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="var(--chart-fill-from)" /><stop offset="100%" stopColor="var(--chart-fill-to)" /></linearGradient></defs>
+                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--chart-grid)" />
+                <XAxis dataKey="month" axisLine={false} tickLine={false} tickMargin={8} tick={{ fill: 'var(--chart-axis)', fontSize: 12 }} />
+                <YAxis axisLine={false} tickLine={false} width={48} tick={{ fill: 'var(--chart-axis)', fontSize: 12 }} tickFormatter={(value) => new Intl.NumberFormat(undefined, { notation: 'compact' }).format(value)} />
+                <Tooltip cursor={{ stroke: 'var(--chart-grid)', strokeWidth: 1 }} content={<SavingsTooltip />} />
+                <Area type="monotone" dataKey="saved" stroke="var(--chart-line)" strokeWidth={2.5} fill="url(#savingsFill)" activeDot={{ r: 4, strokeWidth: 2, stroke: 'var(--surface)' }} />
               </AreaChart>
             </ResponsiveContainer>
           </div>
