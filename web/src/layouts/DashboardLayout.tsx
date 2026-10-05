@@ -64,6 +64,7 @@ function DashboardLayout({ children }: DashboardLayoutProps) {
 
   return (
     <div className="dashboard-layout">
+      <a className="skip-link" href="#dashboard-main">Skip to main content</a>
       <aside id="dashboard-navigation" className={`dashboard-sidebar ${menuOpen ? 'is-open' : ''}`} aria-hidden={mobileNavigation && !menuOpen} inert={mobileNavigation && !menuOpen ? true : undefined}>
         <div className="sidebar-top"><Brand /><button className="menu-close" type="button" onClick={() => setMenuOpen(false)} aria-label="Close navigation"><X size={20} /></button></div>
         <nav className="dashboard-nav" aria-label="Dashboard navigation">
@@ -93,7 +94,7 @@ function DashboardLayout({ children }: DashboardLayoutProps) {
           <Link className="header-icon-button" to="/dashboard/notifications" aria-label="Open notifications"><Bell size={20} /><span className="notification-indicator" /></Link>
           <Link className="profile-summary" to="/dashboard/profile" aria-label="Open profile"><div className="profile-copy"><strong>{demoUser.fullName}</strong><span>{demoUser.preferredCurrency} account</span></div><span className="profile-avatar" aria-hidden="true">{demoUser.initials}</span></Link>
         </header>
-        <main className="dashboard-content">{children}</main>
+        <main className="dashboard-content" id="dashboard-main" tabIndex={-1}>{children}</main>
       </div>
     </div>
   )

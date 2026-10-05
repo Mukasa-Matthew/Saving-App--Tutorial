@@ -12,8 +12,6 @@ import NotificationsPage from './pages/NotificationsPage'
 import ForgotPasswordPage from './pages/ForgotPasswordPage'
 import ResetPasswordPage from './pages/ResetPasswordPage'
 import ProtectedRoute from './components/ProtectedRoute'
-import './App.css'
-import './authenticated.css'
 
 function App() {
   return (

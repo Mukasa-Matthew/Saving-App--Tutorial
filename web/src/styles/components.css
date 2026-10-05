@@ -1,0 +1,888 @@
+/* ==========================================================================
+   Components — every reusable surface, control and indicator in the product.
+   Declared once each. If a page needs a variant, it adds a modifier class
+   here rather than re-declaring the base selector further down the cascade.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Brand mark
+   -------------------------------------------------------------------------- */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--text);
+  font-size: var(--text-md);
+  font-weight: 600;
+  letter-spacing: var(--tracking-tight);
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: var(--radius-sm);
+  background: var(--brand);
+  color: var(--text-on-brand);
+  font-size: var(--text-base);
+  font-weight: 700;
+  box-shadow: var(--shadow-xs);
+}
+
+.brand:hover .brand-mark {
+  background: var(--brand-hover);
+}
+
+/* --------------------------------------------------------------------------
+   Buttons — one base, three tones, two sizes.
+   Minimum 44px target height on every interactive control.
+   -------------------------------------------------------------------------- */
+.create-goal-button,
+.submit-button,
+.converter-submit,
+.withdraw-button,
+.cancel-button,
+.primary-action,
+.secondary-action,
+.nav-cta {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 0 var(--space-5);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+/* Primary */
+.create-goal-button,
+.submit-button,
+.converter-submit,
+.primary-action,
+.nav-cta {
+  background: var(--brand);
+  color: var(--text-on-brand);
+  box-shadow: var(--shadow-xs);
+}
+
+.create-goal-button:hover,
+.submit-button:hover,
+.converter-submit:hover:not(:disabled),
+.primary-action:hover,
+.nav-cta:hover {
+  background: var(--brand-hover);
+  box-shadow: var(--shadow-sm);
+}
+
+.create-goal-button:active,
+.submit-button:active,
+.converter-submit:active:not(:disabled),
+.primary-action:active,
+.nav-cta:active {
+  background: var(--brand-active);
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+/* Secondary / neutral */
+.cancel-button,
+.withdraw-button,
+.secondary-action {
+  border-color: var(--border);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.cancel-button:hover,
+.withdraw-button:hover,
+.secondary-action:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+}
+
+.cancel-button:active,
+.withdraw-button:active,
+.secondary-action:active {
+  transform: translateY(1px);
+}
+
+.converter-submit {
+  width: 100%;
+  margin-top: var(--space-2);
+}
+
+/* Inline text link with a trailing chevron */
+.text-button,
+.goal-details-link,
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--brand);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.text-button:hover,
+.goal-details-link:hover,
+.back-link:hover {
+  color: var(--brand-hover);
+  text-decoration: underline;
+}
+
+.text-button svg,
+.goal-details-link svg,
+.back-link svg {
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.text-button:hover svg,
+.goal-details-link:hover svg {
+  transform: translateX(2px);
+}
+
+.back-link {
+  margin-bottom: var(--space-5);
+  color: var(--text-secondary);
+}
+
+.back-link:hover svg {
+  transform: translateX(-2px);
+}
+
+/* Square icon button (header actions, menu toggles, swap) */
+.header-icon-button,
+.menu-toggle,
+.menu-close,
+.theme-toggle,
+.swap-button {
+  position: relative;
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: none;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text-secondary);
+  transition: background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.header-icon-button:hover,
+.menu-toggle:hover,
+.menu-close:hover,
+.theme-toggle:hover,
+.swap-button:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+  color: var(--text);
+}
+
+/* --------------------------------------------------------------------------
+   Cards — one surface definition, reused by every panel in the product.
+   -------------------------------------------------------------------------- */
+.savings-chart-panel,
+.quick-actions-panel,
+.dashboard-section,
+.transaction-history,
+.notification-section,
+.reminders-section,
+.full-goal-card,
+.converter-card,
+.conversion-result,
+.settings-card,
+.profile-summary-card,
+.reminder-form-card,
+.reminder-card,
+.auth-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.savings-chart-panel,
+.quick-actions-panel,
+.dashboard-section,
+.converter-card,
+.conversion-result,
+.settings-card,
+.profile-summary-card,
+.reminder-form-card {
+  padding: var(--space-6);
+}
+
+/* Section header inside a card */
+.section-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.section-heading h2 {
+  margin: 0 0 var(--space-1);
+  font-size: var(--text-md);
+}
+
+.section-heading p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+}
+
+.dashboard-kicker,
+.eyebrow,
+.nav-group-label,
+.result-label,
+.summary-card-label > span:first-child {
+  color: var(--text-muted);
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   Forms
+   -------------------------------------------------------------------------- */
+.field {
+  display: grid;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.field > span:first-child {
+  color: var(--text);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.field > span:first-child small {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.field input,
+.field select,
+.field textarea,
+.search-control,
+.transaction-filters select {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  font-family: inherit;
+  font-size: var(--text-base);
+  transition: border-color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.field textarea {
+  min-height: 5rem;
+  padding-top: var(--space-3);
+  line-height: var(--leading-normal);
+  resize: vertical;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.field input:hover,
+.field select:hover,
+.field textarea:hover {
+  border-color: var(--border-strong);
+}
+
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible,
+.transaction-filters select:focus-visible {
+  border-color: var(--brand);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--brand-ring);
+}
+
+.field select,
+.transaction-filters select {
+  padding-right: var(--space-8);
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
+    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: right var(--space-5) center, right calc(var(--space-5) - 5px) center;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.field.has-error input,
+.field.has-error select,
+.field.has-error textarea {
+  border-color: var(--danger);
+}
+
+.field-error {
+  display: block;
+  color: var(--danger);
+  font-size: var(--text-xs);
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 0 var(--space-4);
+}
+
+.password-input,
+.international-phone {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.password-input input {
+  padding-right: 4.5rem;
+}
+
+.password-input button {
+  position: absolute;
+  right: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border: 0;
+  border-radius: var(--radius-xs);
+  background: transparent;
+  color: var(--brand);
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+
+.password-input button:hover {
+  background: var(--brand-soft);
+}
+
+.international-phone select {
+  width: auto;
+  min-width: 7.5rem;
+  flex: none;
+}
+
+.checkbox,
+.toggle-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  line-height: var(--leading-snug);
+  cursor: pointer;
+}
+
+.checkbox input[type='checkbox'] {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex: none;
+  margin-top: 0.1rem;
+  accent-color: var(--brand);
+  cursor: pointer;
+}
+
+.checkbox small {
+  color: var(--text-muted);
+}
+
+.registration-consent {
+  display: grid;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.channel-options {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin: 0 0 var(--space-4);
+  background: var(--surface-sunken);
+}
+
+.channel-options legend {
+  padding: 0 var(--space-2);
+  color: var(--text);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.toggle-row {
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.toggle-row:last-of-type {
+  border-bottom: 0;
+}
+
+.toggle-row > span:first-child {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.toggle-row strong {
+  color: var(--text);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.toggle-row small {
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+}
+
+/* Switch-style checkbox */
+.toggle-row input[type='checkbox'],
+.compact-toggle input[type='checkbox'] {
+  position: relative;
+  width: 2.5rem;
+  height: 1.5rem;
+  flex: none;
+  appearance: none;
+  border-radius: var(--radius-pill);
+  background: var(--border-strong);
+  cursor: pointer;
+  transition: background-color var(--duration-base) var(--ease-out);
+}
+
+.toggle-row input[type='checkbox']::after,
+.compact-toggle input[type='checkbox']::after {
+  position: absolute;
+  top: 0.1875rem;
+  left: 0.1875rem;
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: var(--shadow-xs);
+  content: '';
+  transition: transform var(--duration-base) var(--ease-spring);
+}
+
+.toggle-row input[type='checkbox']:checked,
+.compact-toggle input[type='checkbox']:checked {
+  background: var(--brand);
+}
+
+.toggle-row input[type='checkbox']:checked::after,
+.compact-toggle input[type='checkbox']:checked::after {
+  transform: translateX(1rem);
+}
+
+.standalone-toggle {
+  padding: var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-4);
+  background: var(--surface-sunken);
+}
+
+/* Inline messages */
+.form-error,
+.settings-success,
+.demo-mode-note,
+.simulation-note,
+.rate-disclaimer {
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  margin: 0 0 var(--space-4);
+  font-size: var(--text-xs);
+  line-height: var(--leading-snug);
+}
+
+.form-error {
+  border-color: color-mix(in srgb, var(--danger) 30%, transparent);
+  background: var(--danger-soft);
+  color: var(--danger-soft-text);
+}
+
+.settings-success {
+  border-color: color-mix(in srgb, var(--success) 30%, transparent);
+  background: var(--success-soft);
+  color: var(--success-soft-text);
+}
+
+.demo-mode-note {
+  border-color: var(--border);
+  background: var(--surface-sunken);
+  color: var(--text-secondary);
+}
+
+.demo-mode-note strong {
+  color: var(--text);
+}
+
+.simulation-note,
+.rate-disclaimer {
+  padding: 0;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Badges and status pills — colour is always paired with a label, never
+   the sole carrier of meaning.
+   -------------------------------------------------------------------------- */
+.transaction-status,
+.status-badge,
+.type-badge,
+.notification-category {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 0.1875rem var(--space-2);
+  border-radius: var(--radius-xs);
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.transaction-status.successful,
+.status-badge.on-track {
+  background: var(--success-soft);
+  color: var(--success-soft-text);
+}
+
+.transaction-status.pending {
+  background: var(--warning-soft);
+  color: var(--warning-soft-text);
+}
+
+.transaction-status.failed {
+  background: var(--danger-soft);
+  color: var(--danger-soft-text);
+}
+
+.status-badge {
+  background: var(--info-soft);
+  color: var(--info-soft-text);
+}
+
+.type-badge.deposit {
+  background: var(--success-soft);
+  color: var(--success-soft-text);
+}
+
+.type-badge.withdrawal {
+  background: var(--danger-soft);
+  color: var(--danger-soft-text);
+}
+
+.notification-category {
+  background: var(--surface-sunken);
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* Amounts: positive is brand-coloured, negative is danger, and the sign
+   character carries the meaning for anyone who can't see the colour. */
+.transaction-amount,
+.table-amount {
+  color: var(--success);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.transaction-amount.is-withdrawal,
+.table-amount.is-withdrawal {
+  color: var(--danger);
+}
+
+/* --------------------------------------------------------------------------
+   Progress bar
+   -------------------------------------------------------------------------- */
+.ui-progress {
+  width: 100%;
+  height: 0.5rem;
+  overflow: hidden;
+  border-radius: var(--radius-pill);
+  background: var(--progress-track);
+}
+
+.ui-progress-small {
+  height: 0.375rem;
+}
+
+.ui-progress-large {
+  height: 0.625rem;
+}
+
+.ui-progress > span {
+  display: block;
+  width: var(--progress-value, 0%);
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--brand), var(--evergreen-400));
+  transition: width var(--duration-slow) var(--ease-out);
+}
+
+/* --------------------------------------------------------------------------
+   Spinner
+   -------------------------------------------------------------------------- */
+.ui-spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: ui-spin 700ms linear infinite;
+  opacity: 0.85;
+  vertical-align: -0.15em;
+}
+
+.ui-spinner-large {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-width: 2.5px;
+}
+
+.ui-spinner-brand {
+  color: var(--brand);
+}
+
+@keyframes ui-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Modal
+   -------------------------------------------------------------------------- */
+.modal-layer {
+  position: fixed;
+  z-index: var(--z-modal);
+  display: grid;
+  padding: var(--space-4);
+  align-content: center;
+  justify-items: center;
+  background: var(--scrim);
+  inset: 0;
+  overflow-y: auto;
+  animation: modal-layer-in var(--duration-base) var(--ease-out);
+  backdrop-filter: blur(3px);
+}
+
+.goal-modal {
+  width: min(100%, 34rem);
+  max-height: calc(100dvh - var(--space-8));
+  overflow-y: auto;
+  padding: var(--space-6);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-lg);
+  animation: modal-panel-in var(--duration-slow) var(--ease-spring);
+}
+
+.goal-modal.withdrawal-modal {
+  width: min(100%, 38rem);
+}
+
+@keyframes modal-layer-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes modal-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem) scale(0.98);
+  }
+}
+
+.modal-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: var(--space-5);
+}
+
+.modal-heading h2 {
+  margin: var(--space-1) 0 0;
+  font-size: var(--text-lg);
+}
+
+.modal-heading > button {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex: none;
+  place-items: center;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: var(--text-xl);
+  line-height: 1;
+}
+
+.modal-heading > button:hover {
+  background: var(--surface-hover);
+  color: var(--text);
+}
+
+.modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--border-subtle);
+  margin-top: var(--space-5);
+}
+
+.modal-actions > * {
+  flex: 1 1 8rem;
+}
+
+/* Success confirmation shown inside modals and after registration */
+.goal-success {
+  display: grid;
+  justify-items: center;
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+}
+
+.goal-success > span {
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  place-items: center;
+  border-radius: 50%;
+  margin-bottom: var(--space-4);
+  background: var(--success-soft);
+  color: var(--success-soft-text);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  animation: success-pop var(--duration-slow) var(--ease-spring);
+}
+
+@keyframes success-pop {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+}
+
+.goal-success h3 {
+  margin-bottom: var(--space-2);
+  font-size: var(--text-md);
+}
+
+.goal-success p {
+  max-width: 28rem;
+  margin-bottom: var(--space-5);
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+}
+
+/* --------------------------------------------------------------------------
+   Empty states — every one offers a next action.
+   -------------------------------------------------------------------------- */
+.transaction-empty,
+.notification-empty,
+.not-found-state,
+.result-placeholder {
+  display: grid;
+  justify-items: center;
+  padding: var(--space-9) var(--space-5);
+  text-align: center;
+}
+
+.transaction-empty svg,
+.notification-empty svg,
+.not-found-state > span {
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  place-items: center;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-4);
+  background: var(--surface-sunken);
+  color: var(--text-muted);
+  font-size: var(--text-lg);
+}
+
+.transaction-empty h3,
+.notification-empty h2,
+.not-found-state h1,
+.result-placeholder h2 {
+  margin-bottom: var(--space-2);
+  font-size: var(--text-md);
+}
+
+.transaction-empty p,
+.notification-empty p,
+.not-found-state p,
+.result-placeholder p {
+  max-width: 24rem;
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+.transaction-empty button {
+  min-height: 2.5rem;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-top: var(--space-4);
+  background: var(--surface);
+  color: var(--text);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.transaction-empty button:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+}
+
+.empty-transactions {
+  padding: var(--space-7);
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  text-align: center;
+}
