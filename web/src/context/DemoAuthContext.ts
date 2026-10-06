@@ -2,6 +2,7 @@ import { createContext, useContext } from 'react'
 
 export type DemoAuthContextValue = {
   isAuthenticated: boolean
+  isInitializing: boolean
   login: () => void
   logout: () => void
 }
