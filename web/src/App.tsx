@@ -1,4 +1,5 @@
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
@@ -12,10 +13,25 @@ import NotificationsPage from './pages/NotificationsPage'
 import ForgotPasswordPage from './pages/ForgotPasswordPage'
 import ResetPasswordPage from './pages/ResetPasswordPage'
 import ProtectedRoute from './components/ProtectedRoute'
+import AppLoader from './components/AppLoader'
+import { useDemoAuth } from './context/DemoAuthContext'
 
-function App() {
+function AppRoutes() {
+  const location = useLocation()
+  const [renderedLocation, setRenderedLocation] = useState(location)
+  const isChangingPage = location.key !== renderedLocation.key
+
+  useEffect(() => {
+    if (!isChangingPage) return
+
+    const timer = window.setTimeout(() => setRenderedLocation(location), 300)
+    return () => window.clearTimeout(timer)
+  }, [isChangingPage, location])
+
+  if (isChangingPage) return <AppLoader label="Loading page…" />
+
   return (
-    <Routes>
+    <Routes location={renderedLocation}>
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
@@ -33,6 +49,14 @@ function App() {
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )
+}
+
+function App() {
+  const { isInitializing } = useDemoAuth()
+
+  if (isInitializing) return <AppLoader />
+
+  return <AppRoutes />
 }
 
 export default App
