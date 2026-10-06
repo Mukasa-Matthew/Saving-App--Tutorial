@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react'
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
 import RegisterPage from './pages/RegisterPage'
@@ -17,21 +16,8 @@ import AppLoader from './components/AppLoader'
 import { useDemoAuth } from './context/DemoAuthContext'
 
 function AppRoutes() {
-  const location = useLocation()
-  const [renderedLocation, setRenderedLocation] = useState(location)
-  const isChangingPage = location.key !== renderedLocation.key
-
-  useEffect(() => {
-    if (!isChangingPage) return
-
-    const timer = window.setTimeout(() => setRenderedLocation(location), 300)
-    return () => window.clearTimeout(timer)
-  }, [isChangingPage, location])
-
-  if (isChangingPage) return <AppLoader label="Loading page…" />
-
   return (
-    <Routes location={renderedLocation}>
+    <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
