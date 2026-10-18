@@ -9,7 +9,10 @@ function AppLoader({ label = 'Loading GoalSave…' }: AppLoaderProps) {
         <span className="app-loader-mark">G</span>
         <span>GoalSave</span>
       </div>
-      <span className="app-loader-spinner" aria-hidden="true" />
+      <div className="app-loader-status" aria-hidden="true">
+        <span>{label}</span>
+        <span className="app-loader-track"><span /></span>
+      </div>
       <span className="sr-only">{label}</span>
     </div>
   )
