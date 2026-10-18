@@ -29,9 +29,9 @@ function LoginPage() {
             <h1>Sign in to GoalSave</h1>
             <p>Continue making progress toward what matters to you.</p>
           </div>
-          <p className="demo-mode-note"><strong>Demo mode</strong> Enter any valid email address and any password to explore GoalSave.</p>
+          <p className="demo-mode-note"><strong>Demo mode</strong> Enter any email or username and any password to explore GoalSave.</p>
           <form onSubmit={handleSubmit}>
-            <label className="field"><span>Email address</span><input type="email" name="email" autoComplete="email" required /></label>
+            <label className="field"><span>Email or username</span><input type="text" name="username" autoComplete="username" required /></label>
             <label className="field">
               <span>Password</span>
               <span className="password-input">
