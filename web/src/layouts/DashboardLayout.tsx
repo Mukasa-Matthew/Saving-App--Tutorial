@@ -94,7 +94,9 @@ function DashboardLayout({ children }: DashboardLayoutProps) {
           <Link className="header-icon-button" to="/dashboard/notifications" aria-label="Open notifications"><Bell size={20} /><span className="notification-indicator" /></Link>
           <Link className="profile-summary" to="/dashboard/profile" aria-label="Open profile"><div className="profile-copy"><strong>{demoUser.fullName}</strong><span>{demoUser.preferredCurrency} account</span></div><span className="profile-avatar" aria-hidden="true">{demoUser.initials}</span></Link>
         </header>
-        <main className="dashboard-content" id="dashboard-main" tabIndex={-1}>{children}</main>
+        <main className="dashboard-content" id="dashboard-main" tabIndex={-1}>
+          <div className="dashboard-page-transition" key={location.pathname}>{children}</div>
+        </main>
       </div>
     </div>
   )

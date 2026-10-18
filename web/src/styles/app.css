@@ -279,6 +279,27 @@
   margin: 0 auto;
 }
 
+.dashboard-page-transition {
+  animation: dashboard-page-in var(--duration-slow) var(--ease-out) both;
+}
+
+.dashboard-page-transition > :not(.modal-layer) {
+  animation: dashboard-section-in var(--duration-slow) var(--ease-out) both;
+}
+
+.dashboard-page-transition > :not(.modal-layer):nth-child(2) { animation-delay: 45ms; }
+.dashboard-page-transition > :not(.modal-layer):nth-child(3) { animation-delay: 90ms; }
+.dashboard-page-transition > :not(.modal-layer):nth-child(4) { animation-delay: 135ms; }
+.dashboard-page-transition > :not(.modal-layer):nth-child(n + 5) { animation-delay: 180ms; }
+
+@keyframes dashboard-page-in {
+  from { opacity: 0; }
+}
+
+@keyframes dashboard-section-in {
+  from { opacity: 0; transform: translateY(0.6rem); }
+}
+
 .dashboard-content h1 {
   font-size: var(--text-2xl);
   letter-spacing: var(--tracking-tighter);
