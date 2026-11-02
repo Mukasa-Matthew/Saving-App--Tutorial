@@ -29,7 +29,7 @@ const pageDetails = [
   { match: /^\/dashboard\/transactions$/, title: 'Transactions', subtitle: 'Review movement across your goals.' },
   { match: /^\/dashboard\/converter$/, title: 'Currency converter', subtitle: 'Plan confidently across currencies.' },
   { match: /^\/dashboard\/notifications$/, title: 'Notifications', subtitle: 'Account updates and savings reminders.' },
-  { match: /^\/dashboard\/profile$/, title: 'Profile & settings', subtitle: 'Manage your GoalSave preferences.' },
+  { match: /^\/dashboard\/profile$/, title: 'Profile & settings', subtitle: 'Manage your PennyWise preferences.' },
 ]
 
 function DashboardLayout({ children }: DashboardLayoutProps) {

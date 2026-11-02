@@ -42,7 +42,7 @@ function RegisterPage() {
       <div className="auth-shell auth-shell-wide">
         <Brand />
         <section className="auth-card">
-          <div className="auth-heading"><p className="eyebrow">Start your journey</p><h1>Create your account</h1><p>Set up GoalSave and take the first step toward your goals.</p></div>
+          <div className="auth-heading"><p className="eyebrow">Start your journey</p><h1>Create your account</h1><p>Set up PennyWise and take the first step toward your goals.</p></div>
           {submitted ? (
             <div className="goal-success" role="status"><span aria-hidden="true">✓</span><h3>Registration details look good</h3><p>This is a frontend preview. No account or preferences were saved.</p><Link className="submit-button registration-done" to="/login">Continue to sign in</Link></div>
           ) : (
@@ -62,7 +62,7 @@ function RegisterPage() {
               </div>
               <div className="registration-consent">
                 <label className="checkbox terms"><input type="checkbox" name="terms" required /> I agree to the Terms of Service and Privacy Policy.</label>
-                <label className="checkbox terms"><input type="checkbox" name="marketingUpdates" /> Email me GoalSave updates, savings tips, product announcements, and offers. <strong>Optional</strong></label>
+                <label className="checkbox terms"><input type="checkbox" name="marketingUpdates" /> Email me PennyWise updates, savings tips, product announcements, and offers. <strong>Optional</strong></label>
               </div>
               {formError && <p className="form-error" role="alert">{formError}</p>}
               <button className="submit-button" type="submit">Create Account</button>

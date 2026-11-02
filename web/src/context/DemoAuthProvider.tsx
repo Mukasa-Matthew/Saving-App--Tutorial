@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import { DemoAuthContext } from './DemoAuthContext'
 
-const SESSION_KEY = 'goalsave-demo-session'
+const SESSION_KEY = 'pennywise-demo-session'
 
 export function DemoAuthProvider({ children }: { children: ReactNode }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false)

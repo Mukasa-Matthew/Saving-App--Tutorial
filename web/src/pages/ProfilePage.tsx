@@ -107,7 +107,7 @@ function ProfilePage() {
         </section>
 
         <section className="settings-card">
-          <div className="settings-heading"><div><h2>Preferences</h2><p>Choose how GoalSave should look and keep you informed.</p></div></div>
+          <div className="settings-heading"><div><h2>Preferences</h2><p>Choose how PennyWise should look and keep you informed.</p></div></div>
           <form className="settings-form" onSubmit={submitPreferences}>
             <label className="field"><span>Preferred currency</span><select name="currency" defaultValue={demoUser.preferredCurrency}>{currencies.map((currency) => <option value={currency.code} key={currency.code}>{currency.code} — {currency.name}</option>)}</select></label>
             <label className="field"><span>Theme preference</span><select name="theme" defaultValue="system"><option value="system">Use device setting</option><option value="light">Light</option><option value="dark">Dark (coming soon)</option></select></label>
@@ -115,7 +115,7 @@ function ProfilePage() {
               <label className="toggle-row"><span><strong>Security alerts</strong><small>Receive important email alerts about account security.</small></span><input type="checkbox" name="securityAlerts" defaultChecked={demoUser.notifications.securityAlerts} /></label>
               <label className="toggle-row"><span><strong>Savings reminders</strong><small>Receive reminders about upcoming target dates.</small></span><input type="checkbox" name="savingsReminders" defaultChecked={demoUser.notifications.savingsReminders} /></label>
               <label className="toggle-row"><span><strong>Transaction updates</strong><small>Receive email status updates for deposits and withdrawals.</small></span><input type="checkbox" name="transactionUpdates" defaultChecked={demoUser.notifications.transactionUpdates} /></label>
-              <label className="toggle-row"><span><strong>Product updates and offers</strong><small>Optional emails with GoalSave news, tips, announcements, and offers.</small></span><input type="checkbox" name="marketingUpdates" defaultChecked={demoUser.notifications.marketingUpdates} /></label>
+              <label className="toggle-row"><span><strong>Product updates and offers</strong><small>Optional emails with PennyWise news, tips, announcements, and offers.</small></span><input type="checkbox" name="marketingUpdates" defaultChecked={demoUser.notifications.marketingUpdates} /></label>
             </div>
             {notice === 'preferences' && <p className="settings-success" role="status">✓ Preferences previewed. No settings were persisted.</p>}
             <div className="settings-actions"><button className="submit-button" type="submit">Save preferences</button></div>
