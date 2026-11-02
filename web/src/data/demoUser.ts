@@ -7,7 +7,7 @@ export const demoUser = {
   country: 'Kenya',
   callingCode: '+254',
   phoneNumber: '712 345678',
-  preferredCurrency: 'USD',
+  preferredCurrency: 'UGX',
   status: 'Active',
   notifications: {
     securityAlerts: true,
