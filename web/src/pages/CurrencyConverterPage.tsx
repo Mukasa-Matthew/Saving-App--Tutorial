@@ -88,7 +88,7 @@ function CurrencyConverterPage() {
               <span>{formatCurrency(result.amount, result.base)}</span>
               <strong>{formatCurrency(result.convertedAmount, result.quote)}</strong>
               <div className="rate-details"><p><span>Exchange rate used</span><strong>1 {result.base} = {new Intl.NumberFormat(undefined, { maximumSignificantDigits: 7 }).format(result.rate)} {result.quote}</strong></p><p><span>Latest rate date</span><strong>{new Intl.DateTimeFormat(undefined, { dateStyle: 'long', timeZone: 'UTC' }).format(new Date(`${result.date}T00:00:00Z`))}</strong></p></div>
-              <p className="rate-disclaimer">Reference estimate only. This is not a guaranteed banking or payment rate and does not affect your GoalSave balances.</p>
+              <p className="rate-disclaimer">Reference estimate only. This is not a guaranteed banking or payment rate and does not affect your PennyWise balances.</p>
             </div>
           ) : (
             <div className="result-placeholder"><span className="converter-symbol" aria-hidden="true"><TrendingUp size={24} /></span><h2>Your conversion will appear here</h2><p>Enter an amount and choose two currencies to retrieve the latest available rate.</p></div>

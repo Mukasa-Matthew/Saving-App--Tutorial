@@ -34,10 +34,10 @@ function LoginPage() {
         <section className="auth-card">
           <div className="auth-heading">
             <p className="eyebrow">Welcome back</p>
-            <h1>Sign in to GoalSave</h1>
+            <h1>Sign in to PennyWise</h1>
             <p>Continue making progress toward what matters to you.</p>
           </div>
-          <p className="demo-mode-note"><strong>Demo mode</strong> Enter any email or username and any password to explore GoalSave.</p>
+          <p className="demo-mode-note"><strong>Demo mode</strong> Enter any email or username and any password to explore PennyWise.</p>
           <form onSubmit={handleSubmit}>
             <label className="field"><span>Email or username</span><input type="text" name="username" autoComplete="username" required /></label>
             <label className="field">
@@ -54,7 +54,7 @@ function LoginPage() {
               {isSigningIn ? <><LoadingSpinner /> Signing you in…</> : 'Sign In'}
             </button>
           </form>
-          <p className="auth-switch">New to GoalSave? <Link to="/register">Create an account</Link></p>
+          <p className="auth-switch">New to PennyWise? <Link to="/register">Create an account</Link></p>
         </section>
       </div>
     </main>

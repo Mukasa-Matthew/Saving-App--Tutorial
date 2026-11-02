@@ -10,7 +10,7 @@ function HomePage() {
       <header className="site-header">
         <Brand />
         <nav className="public-nav" aria-label="Public navigation">
-          <a href="#features">Why GoalSave</a>
+          <a href="#features">Why PennyWise</a>
           <Link to="/login">Sign in</Link>
           <Link className="nav-cta" to="/register">Get started</Link>
         </nav>
@@ -24,7 +24,7 @@ function HomePage() {
             <Link className="primary-action" to="/register">Start saving <span aria-hidden="true">→</span></Link>
             <Link className="secondary-action" to="/login">Explore demo</Link>
           </div>
-          <div className="hero-assurances" aria-label="GoalSave benefits">
+          <div className="hero-assurances" aria-label="PennyWise benefits">
             <span><strong>✓</strong> Goal-led planning</span>
             <span><strong>✓</strong> International currencies</span>
             <span><strong>✓</strong> Clear progress tracking</span>

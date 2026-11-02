@@ -16,7 +16,7 @@ export const notificationsDemo: NotificationDemo[] = [
   { id: 3, category: 'Transactions', title: 'Deposit confirmed', message: 'Your demonstration deposit to Emergency Fund was successful.', timestamp: 'Oct 4, 10:15 AM', read: true },
   { id: 4, category: 'Transactions', title: 'Withdrawal update', message: 'A demonstration withdrawal status is ready to review.', timestamp: 'Oct 3, 2:45 PM', read: false },
   { id: 5, category: 'Security', title: 'New sign-in detected', message: 'A sign-in was detected from a new browser. Review it if this was not you.', timestamp: 'Oct 2, 8:32 PM', read: true },
-  { id: 6, category: 'System', title: 'Planned maintenance', message: 'GoalSave demonstration services will receive routine maintenance this weekend.', timestamp: 'Oct 1, 11:00 AM', read: true },
+  { id: 6, category: 'System', title: 'Planned maintenance', message: 'PennyWise demonstration services will receive routine maintenance this weekend.', timestamp: 'Oct 1, 11:00 AM', read: true },
 ]
 
 export const remindersDemo = [

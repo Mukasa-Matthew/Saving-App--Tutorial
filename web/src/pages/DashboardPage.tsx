@@ -53,7 +53,7 @@ function DashboardPage() {
         <div className="supporting-metrics">
           <article><Target size={19} /><span>Active goals</span><strong>{dashboardSummaryDemo.activeGoals}</strong><small>Currently in progress</small></article>
           <article><ArrowUpRight size={19} /><span>Saved this month</span><strong>{formatCurrency(dashboardSummaryDemo.monthlySaved, demoUser.preferredCurrency)}</strong><small>Best month this quarter</small></article>
-          <article><Trophy size={19} /><span>Goals completed</span><strong>{dashboardSummaryDemo.completedGoals}</strong><small>Since joining GoalSave</small></article>
+          <article><Trophy size={19} /><span>Goals completed</span><strong>{dashboardSummaryDemo.completedGoals}</strong><small>Since joining PennyWise</small></article>
         </div>
       </section>
 
